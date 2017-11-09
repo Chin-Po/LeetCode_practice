@@ -1,0 +1,6 @@
+# Read from the file words.txt and output the word frequency list to stdout.
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -nr | awk '{print $2 " " $1}'
+
+# 解釋
+#tr -s ' ' '\n'  用换行替换空格，这样每一行就是一个单词了
+#sort -nr n是以数字排序 r是逆序（降序）
