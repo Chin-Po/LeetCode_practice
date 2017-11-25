@@ -2,17 +2,16 @@ class Solution {
 public:
     string reverseVowels(string s) {
         vector<char> vowel;
-        for(auto i : s)
-            if(i == 'a' || i == 'e' || i == 'i' || i == 'o' || i == 'u' 
-               || i == 'A' || i == 'E' || i == 'I' || i == 'O' || i == 'U') 
+        for(auto &i : s){
+            if(i == 'A' || i == 'E' || i == 'I' || i == 'O' || i == 'U'
+              || i == 'a' || i == 'e' || i == 'i' || i == 'o' || i == 'u'){
                 vowel.push_back(i);
-        
-        int cnt = vowel.size()-1;
-        for(auto &i : s)
-        {
-            if(i == 'a' || i == 'e' || i == 'i' || i == 'o' || i == 'u'
-              || i == 'A' || i == 'E' || i == 'I' || i == 'O' || i == 'U')
-            {
+            }
+        }
+        int cnt = vowel.size() - 1;
+        for(auto &i : s){
+            if(i == 'A' || i == 'E' || i == 'I' || i == 'O' || i == 'U'
+              || i == 'a' || i == 'e' || i == 'i' || i == 'o' || i == 'u'){
                 i = vowel[cnt];
                 cnt--;
             }
