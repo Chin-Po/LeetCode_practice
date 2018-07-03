@@ -1,33 +1,26 @@
 class MinStack {
 public:
-    /** initialize your data structure here. */
-    stack<int> s;
-    stack<int> trackMin;
-    
-    MinStack() {
-        
-    }
+    /** initialize your data structure here. */    
+    stack<int> stk;
+    stack<int> min_stk;
+    MinStack() {}
     
     void push(int x) {
-        if(trackMin.empty() || x <= trackMin.top())
-        {
-            trackMin.push(x);
-        }
-        s.push(x);
+        if(min_stk.empty() || x <= min_stk.top()) min_stk.push(x);
+        stk.push(x);
     }
     
     void pop() {
-        if(trackMin.top() == s.top())
-            trackMin.pop();
-        s.pop();
+        if(stk.top() == min_stk.top()) min_stk.pop();
+        stk.pop();
     }
     
     int top() {
-        return s.top();
+        return stk.top();
     }
     
     int getMin() {
-        return trackMin.top();
+        return min_stk.top();
     }
 };
 
