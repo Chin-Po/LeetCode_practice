@@ -1,16 +1,20 @@
 class Solution {
 public:
     string customSortString(string S, string T) {
-        unordered_map<char, int> m;
+        unordered_map<char, int> m; // char, occurency 
         for(auto c: T) m[c]++;
         string res = "";
         for(auto c: S){
-            for(int i = 0; i < m[c]; i++) res += c;
-            m[c] = 0;
+            while(m[c] != 0){
+                res += c;
+                m[c]--;
+            }
         }
         for(auto e: m){
-            for(int i = 0; i < e.second; i++)
+            while(e.second != 0){
                 res += e.first;
+                e.second--;
+            }
         }
         return res;
     }
