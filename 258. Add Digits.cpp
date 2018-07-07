@@ -1,14 +1,13 @@
 class Solution {
 public:
     int addDigits(int num) {
-        string str_num = to_string(num);
-        while(str_num.size() != 1){
-            int tmp = 0;
-            for(auto &i : str_num){
-                tmp = tmp + (i-'0');
-            }
-            str_num = to_string(tmp);
+        if(num % 10 == num) return num;
+        while(1){
+            string str_n = to_string(num);
+            int res = 0;
+            for(auto c: str_n) res += (c - '0');
+            if(res % 10 == res) return res;
+            else num = res;
         }
-        return stoi(str_num);
     }
 };
